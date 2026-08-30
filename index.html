@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sharan Kalamohan — Automotive &amp; Motorsport Engineer</title>
+<meta name="description" content="Portfolio of Sharan Kalamohan: MSc Automotive &amp; Motorsport Engineering. Powertrain simulation, vehicle dynamics, FEA and Formula Student engineering leadership.">
+<meta property="og:title" content="Sharan Kalamohan — Automotive &amp; Motorsport Engineer">
+<meta property="og:description" content="Powertrain simulation, vehicle dynamics, FEA and Formula Student engineering leadership.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="scrollbar" id="scrollbar" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#/" aria-label="Home">
+    <span class="brand-mark" aria-hidden="true">SK</span>
+    <span class="brand-txt">
+      <b>Sharan Kalamohan</b>
+      <i>Automotive &amp; Motorsport Engineer</i>
+    </span>
+  </a>
+
+  <button class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="navlinks">
+    <span></span><span></span><span></span>
+    <em class="sr">Menu</em>
+  </button>
+
+  <nav class="navlinks" id="navlinks">
+    <a href="#cv" data-nav="cv">Background</a>
+    <a href="#projects" data-nav="projects">Projects</a>
+    <a href="#contact" data-nav="contact">Contact</a>
+    <a class="btn btn-sm" id="navcv" href="#" download>Download CV</a>
+  </nav>
+</header>
+
+<main id="view" tabindex="-1"></main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p class="mono tiny" id="footline"></p>
+    <p class="mono tiny">Built by hand · <a href="#/">Back to top</a></p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" id="lbclose" aria-label="Close image">&times;</button>
+  <figure class="lb-fig">
+    <img id="lbimg" alt="">
+    <figcaption class="mono" id="lbcap"></figcaption>
+  </figure>
+</div>
+
+<script src="data/cv.js"></script>
+<script src="data/projects.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
