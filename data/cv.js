@@ -7,17 +7,16 @@ const PROFILE = {
   role: "Automotive & Motorsport Engineer",
   location: "Amersham, Buckinghamshire",
   email: "kalamohansharan@gmail.com",
-  phone: "+44 7397 896474",
   linkedin: "https://linkedin.com/in/sharankalamohan",
   linkedinLabel: "linkedin.com/in/sharankalamohan",
   photo: "assets/profile.jpg",
-  cvFile: "assets/Sharan-Kalamohan-CV.docx",
+  cvFile: "assets/Sharan-Kalamohan-CV.pdf",
 
   availability: "Available full-time from October 2026",
   eligibility: "British citizen · Full UK right to work · Full UK driving licence",
 
   /* The one-paragraph version. Keep it to something you'd actually say. */
-  thesis: "Hi — I'm Sharan Kalamohan, an MSc Automotive & Motorsport Engineering student at Brunel University London, based in Amersham, Buckinghamshire. I am looking for a graduate role in powertrains. I spent a year at Renishaw plc in a future-products R&D team working on a shop-floor gauging system, which went on to win the company's internal Innovation Product of the Year. Alongside my degrees I've built my technical depth through Formula Student, where I was Technical Director of a 30-person concept-class EV team, and through self-directed powertrain simulation on turbocharged and hydrogen combustion. Below you will find my resume and the projects I have worked on.",
+  thesis: "Hi — I'm Sharan Kalamohan, an MSc Automotive & Motorsport Engineering student at Brunel University London, based in Amersham, Buckinghamshire. I am looking for a graduate role in powertrains. I spent a year at Renishaw plc in a future-products R&D team working on a shop-floor gauging system, which has since launched and was named the company's internal Product of the Year 2024. Alongside my degrees I've built my technical depth through Formula Student, where I was Technical Director of a 30-person concept-class EV team, and through self-directed powertrain simulation on turbocharged and hydrogen combustion. Below you will find my resume and the projects I have worked on.",
 
   /* group: "education" | "relevant" | "other"  — each group renders as its own
      sub-heading under Background, most recent first within the group. */
@@ -30,11 +29,9 @@ const PROFILE = {
       org: "Brunel University London",
       note: "Predicted Distinction",
       points: [
-        "Advanced Vehicle Dynamics & Advanced CAD — 87%",
-        "Major Group Project — 72%",
-        "Advanced Vehicle Propulsion Technologies — 71%",
-        "Advanced Materials & Manufacturing — 70%",
-        "Racing Vehicle Design & Performance — 70%",
+        "Vehicle Dynamics & CAD — 87%",
+        "Vehicle Propulsion Technologies — 71%",
+        "Racing Vehicle Design — 70%",
         "Dissertation & Coursework Presented In Projects Section"
       ]
     },
@@ -42,13 +39,13 @@ const PROFILE = {
       group: "relevant",
       kind: "Formula Student",
       period: "Oct 2025 – May 2026",
-      title: "Engineering Technical Director & Motor Subsystem Lead",
-      org: "Brunel Formula Student",
-      note: "FSUK Concept Class · 30-person team",
-      body: "Technical authority across Powertrain, Chassis & Aero, Suspension and Driver Controls on Brunel's electric Concept Class entry. Chaired design reviews, owned the shared specification record and the master CAD assembly, and ran weekly leads meetings to keep four groups from designing to four different sets of assumptions.",
+      title: "Engineering Technical Director",
+      org: "Brunel Masters Motorsport (Formula Student UK)",
+      note: "FSUK Concept Class · team of 30 across four engineering groups",
+      body: "Technical authority across Powertrain, Chassis & Aero, Suspension and Driver Controls on Brunel's electric Concept Class entry. Chaired design reviews to resolve cross-subsystem clashes, ran weekly leads meetings and owned the master CAD assembly and specification record.",
       points: [
-        "Coached members through technical blockers to hold the submission schedule",
-        "Delegated and tracked subsystem testing across four engineering groups",
+        "Set and arbitrated vehicle-level targets — 280 kg, 453 V nominal, 40:60 front/rear — that all four engineering groups designed to",
+        "Delivered the May Concept Class design submission: full vehicle CAD and specifications showing rule compliance",
         "Handed a documented architecture to the 2027 build team"
       ]
     },
@@ -58,9 +55,10 @@ const PROFILE = {
       period: "Sep 2021 – Jun 2025",
       title: "BEng (Hons) Mechanical Engineering",
       org: "University of Nottingham",
-      note: "Upper Second Class (2:1) · includes 12-month industrial placement",
+      note: "Upper Second Class (2:1) · includes 12-month industrial placement at Renishaw plc",
       points: [
-        "Advanced Powertrain Engineering — 91%",
+        "Powertrain Engineering — 91%",
+        "Automotive Technology — 71%",
         "Dissertation — 71%",
         "Dissertation Presented In Projects Section"
       ]
@@ -70,25 +68,28 @@ const PROFILE = {
       kind: "Industrial placement",
       period: "Aug 2023 – Aug 2024",
       title: "Mechanical Engineering Placement Student",
-      org: "Renishaw PLC, Wotton-under-Edge",
-      note: "Future-Products R&D — Equator X gauging system",
-      body: "Twelve months on a team taking a metrology product to market. The system won Renishaw's internal Innovation Product of the Year 2024. My work was on the bonded carbon-fibre structure that its calibration depends on: if the struts move thermally, the software is calibrating against a moving target.",
+      org: "Renishaw plc, Wotton-under-Edge",
+      note: "Gauging R&D — Equator X gauging system",
+      body: "Twelve months on a team taking a metrology product to market. The system has since launched and was named Renishaw's internal Product of the Year 2024. My work was on the bonded carbon-fibre structure that its calibration depends on: if the struts move thermally, the software is calibrating against a moving target.",
       points: [
-        "Designed and machined a magnetic multi-slot bonding fixture, taking strut output from one to five per batch at varying bond-line thicknesses; the concept informed later production tooling",
-        "Cut bond-line thickness variation by 400 µm from an 800–1,200 µm spread, reaching the CTE stability the calibration software required",
-        "Planned and ran adhesive life, CTE and bond-line test programmes plus carbon-fibre tensile testing; authored the internal reports behind adhesive selection",
-        "Modelled in Siemens NX under Teamcenter, programmed GibbsCAM toolpaths, machined on a Mazak 3-axis mill and verified by CMM inspection in MODUS"
+        "Designed and machined a magnetic multi-slot bonding fixture, raising carbon-fibre strut output 5x",
+        "Planned and ran structural-adhesive life, thermal expansion and bond-line test programmes, plus tensile testing of carbon-fibre struts; authored the internal test reports that drove adhesive selection and production feasibility",
+        "Cut bond-line thickness spread from 800 µm to 50 µm, achieving the CTE stability the calibration software required",
+        "Modelled components in Siemens NX under Teamcenter PLM, programmed GibbsCAM toolpaths, machined the parts and verified them by CMM inspection, owning the loop from concept to measured part"
       ]
     },
     {
       group: "other",
       kind: "Part-time",
       period: "Sep 2022 – present",
-      title: "Part-time Area Manager",
-      org: "Mohan Retail Ltd",
-      note: "Alongside full-time study",
-      body: "Coordinated logistics and operations of multiple stores including staff training, inventory control, finances and standards oversight.",
-      points: []
+      title: "Assistant Area Manager",
+      org: "Mohan Retail Ltd, Amersham",
+      note: "Flexible part time, alongside full-time study",
+      body: "",
+      points: [
+        "Managed logistics, stock and staff scheduling across four family run retail stores alongside full-time study",
+        "Introduced Excel-based stock rotation and dynamic pricing, cutting spoilage and increasing weekly revenue 3.6%"
+      ]
     }
   ],
 
@@ -99,10 +100,11 @@ const PROFILE = {
   ],
 
   interests: [
-    { h: "Music production", p: "Self-taught; audio synthesis and arrangement, developing skills in signal filtering." },
-    { h: "Strength training", p: "A self-designed programme balancing strength work against cardiovascular conditioning with nutrition and recovery implemented." },
-    { h: "Five-a-side football", p: "Weekly competitive games with local league." }
+    { h: "Music production", p: "Self-taught in FL Studio, working with synthesis, sampling and mixing." },
+    { h: "Strength training", p: "A programme balancing strength, nutrition and recovery." },
+    { h: "Five-a-side football", p: "Weekly games in a local competitive league." }
   ],
 
-  languages: "English (native) · Tamil (native)"
+  languages: "English (native) · Tamil (native)",
+  memberships: "IMechE Student Member"
 };
