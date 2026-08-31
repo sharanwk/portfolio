@@ -14,7 +14,7 @@ const PROFILE = {
   eligibility: 'British citizen · Full UK right to work · Full UK driving licence',
   
   /* The one-paragraph version. Keep it to something you'd actually say. */
-  thesis: "Hi — I'm Sharan Kalamohan, an MSc Automotive & Motorsport Engineering student at Brunel University London, based in Amersham, Buckinghamshire. I am looking for a graduate role in powertrains. I spent a year at Renishaw plc in a future-products R&D team working on a shop-floor gauging system, which has since launched and was named the company's internal Product of the Year 2024. Alongside my degrees I've built my technical depth through Formula Student, where I was Technical Director of a 30-person concept-class EV team, and through self-directed powertrain simulation on turbocharged and hydrogen combustion. Below you will find my resume and the projects I have worked on.",
+  thesis: "Hi, I'm Sharan! I’m an Amersham based engineering master's student with a passion to build the next generation of powertrains. From leading a Formula Student EV Concept Class team to helping develop award-winning gauging systems at Renishaw and simulating hydrogen combustion, I love pushing mechanical limits. I'm hunting for graduate powertrain roles—take a look at my resume and projects below.",
   
   /* group: education | relevant | other — each group renders as its own sub-heading under Background, most recent first within the group. */
   timeline: [
@@ -26,9 +26,10 @@ const PROFILE = {
       org: 'Brunel University London',
       note: 'Predicted Distinction',
       points: [
-        'Vehicle Dynamics & CAD — 87%',
-        'Vehicle Propulsion Technologies — 71%',
-        'Racing Vehicle Design — 70%',
+        'Advanced Vehicle Dynamics & Advanced CAD — 87%',
+        'Advanced Vehicle Propulsion Technologies & Systems — 71%',
+        'Racing Vehicle Design & Performance — 70%',
+         'Advanced Materials & Manufacturing — 70% ',
         'Dissertation & Coursework Presented In Projects Section'
       ]
     },
@@ -54,10 +55,9 @@ const PROFILE = {
       org: 'University of Nottingham',
       note: 'Upper Second Class (2:1) · includes 12-month industrial placement at Renishaw plc',
       points: [
-        'Powertrain Engineering — 91%',
-        'Automotive Technology — 71%',
-        'Dissertation — 71%',
-        'Dissertation Presented In Projects Section'
+        'Advanced Powertrain Engineering — 91%',
+        'Introduction To Automotive Technology — 71%',
+        'Dissertation — 71% (Dissertation Presented In Projects Section)',
       ]
     },
     {
