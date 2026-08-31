@@ -9,7 +9,8 @@
 
 const PROJECTS = [
 
-/* ------------------------------------------------------------------ MSc --- */
+/* ----------------------------------------------------------- Dissertations --- */
+
 {
   id: "msc-dissertation",
   title: "MSc Dissertation: Adaptive Intake Geometry For Hydrogen High-Performance Engines",
@@ -20,7 +21,7 @@ const PROJECTS = [
   year: "2026",
   status: "active",
   featured: false,
-  tags: ["CFD", "Hydrogen", "Engine design", "Optimisation"],
+  tags: ["Powertrain", "Simulation", "Hydrogen"],
   tools: ["Ricardo WAVE", "Ansys CFD", "MATLAB"],
   report: null,
   hero: null,
@@ -35,32 +36,65 @@ const PROJECTS = [
 },
 
 {
-  id: "engine-sim",
-  title: "1D engine Modelling and Vehicle Data Correlation",
-  short: "Instrumenting a turbocharged 2.0 TFSI, then building an air-path model that has to agree with the logs.",
-  org: "Self-directed",
-  module: "Personal project",
-  role: "Solo",
-  year: "2026 – present",
-  status: "active",
-  featured: false,
-  tags: ["Engine simulation", "Data acquisition", "Hydrogen", "Personal"],
-  tools: ["1D modelling", "VCDS OBD / ECU logging", "MATLAB"],
-  report: null,
-  hero: null,
-  summary: [
-    "In progress. A turbocharged 2.0 TFSI (EA113 with K04 turbo) instrumented and logged at full throttle and part load — boost pressure, mass air flow, intake air temperature, lambda and ignition timing.",
-    "The model is being built to correlate against both the logged data and published dynamometer curves, as the platform for a hydrogen-conversion feasibility study on a real engine rather than a generic one.",
-    "Progress, correlation plots and findings will be posted here as the work develops."
-  ],
-  results: [],
-  differently: [],
-  figures: []
-}
+  id: "beng-dct",
+  title: "BEng Dissertation: Lightweighting Dual-Clutch Transmission Input Shafts",
+  short: "Thirteen steel grades screened, then FEA at 420 Nm in Abaqus validated against classical torsion theory.",
+  org: "University of Nottingham",
+  module: "BEng dissertation — supervised by Prof Nicholas Warrior",
+  role: "Individual dissertation",
+  year: "2024–25",
+  grade: "71%",
+  status: "complete",
+  featured: true,
+  tags: ["Powertrain", "Materials", "FEA"],
+  tools: ["Abaqus CAE", "SolidWorks", "CES EduPack"],
+  report: "reports/beng-dct.pdf",
+  hero: "assets/figures/beng-dct/von-mises-inner.webp",
 
-];
-   
-   {
+  summary: [
+    "DCT input shafts carry high torsional load in a component whose geometry is largely fixed by the gearset around it. The question was whether material substitution alone can buy anything worth having.",
+    "Thirteen candidate grades were screened using a weighted Materials Performance Index built in CES EduPack, combining yield strength, density, shear modulus, cost and fatigue strength. The shortlist then went through FEA in Abaqus CAE — C3D10 tetrahedral mesh, 3 mm global size, 420 Nm applied through a coupling constraint — on both the inner and outer shafts.",
+    "The model was validated against classical torsion theory, with shear stress agreement inside 3–7%, and supported by a mesh convergence study on angle of twist."
+  ],
+
+  results: [
+    ["Baseline AISI 1045", "Factor of safety 2.04 inner, 13.60 outer"],
+    ["50B46", "FoS 6.23 / 41.57 — over 200% improvement at +1.35% cost"],
+    ["AISI 4140", "FoS 5.51 / 36.76 at +8.59% cost"],
+    ["17-4PH H1100", "−24.12% shaft cost with FoS 3.35 / 22.37"],
+    ["Mass", "Best case −3.06%, and that grade failed the FoS threshold"],
+    ["Torsional stiffness", "Varies under 3.3% across all grades — not a binding constraint"],
+    ["Validation", "FEA within 3–7% of classical torsion theory"]
+  ],
+
+  findings: [
+    {
+      h: "Material substitution buys strength and cost, not mass",
+      p: "Von Mises stress was effectively identical across every grade because geometry and load were fixed; only factor of safety moved, and it moved with yield strength. Steel densities are too close together for substitution alone to lighten anything — which means the honest conclusion of a lightweighting study was that the mass is in the geometry, and the material work should be spent on unlocking a smaller section rather than a lighter alloy."
+    }
+  ],
+
+  differently: [
+    "Model fatigue, not just static torsion. The shaft's real duty is cyclic. My own performance index weighted fatigue strength and then the analysis never tested it, which is an inconsistency I would not repeat.",
+    "Optimise geometry alongside material. That steel density barely varies was foreseeable at the proposal stage. Hollow sections and spline refinement would have made the word lightweighting in the title mean something.",
+    "Cost the component, not the billet. I compared raw material price only; machinability and heat-treatment cost would plausibly reverse the ranking between 50B46 and 17-4PH.",
+    "Interrogate the CES averages. Every property was averaged from a range. A sensitivity study on yield strength alone would have shown how much of the FoS ranking survives contact with real supplier data."
+  ],
+
+  figures: [
+    { src: "assets/figures/beng-dct/von-mises-inner.webp",  cap: "Von Mises stress on the inner input shaft at 420 Nm, showing concentrations at the diameter transitions." },
+    { src: "assets/figures/beng-dct/von-mises-outer.webp",  cap: "Von Mises stress on the outer input shaft, concentrating at the keyway slots." },
+    { src: "assets/figures/beng-dct/fos-inner.webp",        cap: "Factor of safety for the inner shaft across all thirteen grades, benchmarked against AISI 1045." },
+    { src: "assets/figures/beng-dct/cost-comparison.webp",  cap: "Percentage difference in total shaft cost against the baseline. Maraging Steel 300 is excluded for scale." },
+    { src: "assets/figures/beng-dct/mesh-convergence.webp", cap: "Mesh convergence: angle of twist against element count for the inner shaft." },
+    { src: "assets/figures/beng-dct/cad-assembly.webp",     cap: "CAD model of the inner input shaft, sectioned into regions for theoretical stress and twist calculation." }
+  ]
+},
+
+
+/* ------------------------------------------------- Powertrain & simulation --- */
+
+{
   id: "mgp-motor",
   title: "MSc Group Project Individual Report: Electric powertrain motor subsystem for a Formula Student car",
   short: "Motor selection, gear ratio and torque control for a 80 kW FS Concept Class EV, sized by simulation.",
@@ -71,7 +105,7 @@ const PROJECTS = [
   grade: "72%",
   status: "complete",
   featured: true,
-  tags: ["Simulation", "Powertrain", "Formula Student", "MATLAB"],
+  tags: ["Powertrain", "Simulation", "Formula Student"],
   tools: ["MATLAB", "Simulink", "Lap simulation", "FS 2026 rules"],
   report: "reports/mgp-motor.pdf",
   hero: "assets/figures/mgp-motor/efficiency-map.webp",
@@ -126,54 +160,7 @@ const PROJECTS = [
   ]
 },
 
-   {
-  id: "fs-concept",
-  title: "Brunel Masters Motorsports #90 — FS Concept Class Car Design Specification",
-  short: "Technical authority across four engineering groups on a 30-person team, delivering a complete Concept Class design submission.",
-  org: "Brunel Racing / Brunel Masters Motorsports",
-  module: "FSUK 2026 Concept Class entry",
-  role: "Engineering Technical Director & Motor Subsystem Lead",
-  year: "2025–26",
-  status: "complete",
-  featured: true,
-  tags: ["Leadership", "Vehicle design", "Formula Student", "Systems integration"],
-  tools: ["Siemens NX", "Master CAD assembly", "Design reviews", "DVP"],
-  report: "reports/fs-concept.pdf",
-  hero: "assets/figures/fs-concept/fs_side.webp",
-
-  summary: [
-    "A single-motor, rear-wheel-drive electric car designed as the engineering foundation for Brunel's running FS Class entry in 2027. Concept Class is the IMechE category for new teams: everything is designed and defended, nothing is yet built.",
-    "As Technical Director I sat across Powertrain, Chassis & Aero, Suspension and Driver Controls — chairing design reviews, owning the shared specification record and the master CAD assembly, and running the weekly leads meetings that kept four groups from converging on incompatible interface assumptions.",
-    "The vehicle is deliberately conservative. Manufacturability, reliability and cost were weighted above peak performance, on the reasoning that a Concept Class design has to become a real car within twelve months and the team's first EV should not also be its first attempt at novel architecture."
-  ],
-
-  results: [
-    ["Architecture", "Single-motor RWD, EMRAX 228 MV + Cascadia PM150DZ"],
-    ["Accumulator", "540-cell Molicel 108S5P, 8.16 kWh at 388.8 V nominal"],
-    ["Power", "80 kW per EV2.2.1 — motor rated 124 kW, derated to 73 kW continuous"],
-    ["Mass target", "260–280 kg without driver"],
-    ["Frame torsional stiffness", "2,922 Nm/deg by FEA against a 2,000 Nm/deg target"],
-    ["Impact attenuator", "8.45 kJ absorbed — 15% above the 7.35 kJ reference threshold"],
-    ["0–100 km/h", "3.97 s in software-in-the-loop against a 4.5 s target"],
-    ["Aerodynamics", "Undertray-diffuser only, 130–180 N at 80 km/h, 50–55% front-biased"],
-    ["Verification", "18 of 21 Design Verification Plan tests passed in SiL"]
-  ],
-
-  differently: [
-    "Centralise cross-group decisions from week one. Without a coordinated specification process the four sub-teams converge on incompatible interface assumptions — we learned that by having to fix it rather than by preventing it.",
-    "Scope the high-voltage workstream honestly at the start. Shutdown circuit, AMS, IMD, BSPD, BOTS, pre-charge, latched reset and TSAL are collectively a workstream with its own owner, not a set of tasks to distribute.",
-    "Start the mass roll-up before component selection, not after. A 15–20% overrun accumulates quietly unless there is an itemised budget updated weekly against real part numbers.",
-    "Identify long-lead items at concept stage. Three-to-four-month lead times on motor, inverter and cells decide whether the detail-design-to-build timeline closes at all, and that has to be known while the design is still moving."
-  ],
-
-  figures: [
-    { src: "assets/figures/fs-concept/fs_side.webp",  cap: "Side view, car #90. 2,739 mm overall length, 1,565 mm wheelbase, 1,140 mm height." },
-    { src: "assets/figures/fs-concept/fs_plan.webp",  cap: "Plan view showing the single-motor rear-wheel-drive layout and accumulator packaging." },
-    { src: "assets/figures/fs-concept/fs_front.webp", cap: "Front end view with track dimensions and pushrod actuation clearing the steering rack." }
-  ]
-},
-
-   {
+{
   id: "hybrid-p0p1p2",
   title: "P0 / P1 / P2 Mild Hybrid Architecture Comparison",
   short: "Three 48 V parallel hybrid layouts on an identical vehicle over WLTP Class 3 — and why the most capable one finished last.",
@@ -184,7 +171,7 @@ const PROJECTS = [
   grade: "73%",
   status: "complete",
   featured: false,
-  tags: ["Powertrain", "Simulation", "Simulink", "Emissions"],
+  tags: ["Powertrain", "Simulation", "Emissions"],
   tools: ["MATLAB", "Simulink Powertrain Blockset", "ECMS", "WLTP Class 3"],
   report: "reports/hybrid-p0p1p2.pdf",
   hero: "assets/figures/hybrid-p0p1p2/fuel-economy.webp",
@@ -228,7 +215,127 @@ const PROJECTS = [
   ]
 },
 
-   {
+{
+  id: "engine-sim",
+  title: "1D Engine Modelling and Vehicle Data Correlation",
+  short: "Instrumenting a turbocharged 2.0 TFSI, then building an air-path model that has to agree with the logs.",
+  org: "Self-directed",
+  module: "Personal project",
+  role: "Solo",
+  year: "2026 – present",
+  status: "active",
+  featured: false,
+  tags: ["Powertrain", "Simulation", "Data acquisition"],
+  tools: ["1D modelling", "VCDS OBD / ECU logging", "MATLAB"],
+  report: null,
+  hero: null,
+  summary: [
+    "In progress. A turbocharged 2.0 TFSI (EA113 with K04 turbo) instrumented and logged at full throttle and part load — boost pressure, mass air flow, intake air temperature, lambda and ignition timing.",
+    "The model is being built to correlate against both the logged data and published dynamometer curves, as the platform for a hydrogen-conversion feasibility study on a real engine rather than a generic one.",
+    "Progress, correlation plots and findings will be posted here as the work develops."
+  ],
+  results: [],
+  differently: [],
+  figures: []
+},
+
+
+/* ----------------------------------------------- Vehicle design & dynamics --- */
+
+{
+  id: "fs-concept",
+  title: "Brunel Masters Motorsports #90 — FS Concept Class Car Design Specification",
+  short: "Technical authority across four engineering groups on a 30-person team, delivering a complete Concept Class design submission.",
+  org: "Brunel Racing / Brunel Masters Motorsports",
+  module: "FSUK 2026 Concept Class entry",
+  role: "Engineering Technical Director & Motor Subsystem Lead",
+  year: "2025–26",
+  status: "complete",
+  featured: true,
+  tags: ["Leadership", "Vehicle dynamics", "Formula Student"],
+  tools: ["Siemens NX", "Master CAD assembly", "Design reviews", "DVP"],
+  report: "reports/fs-concept.pdf",
+  hero: "assets/figures/fs-concept/fs_side.webp",
+
+  summary: [
+    "A single-motor, rear-wheel-drive electric car designed as the engineering foundation for Brunel's running FS Class entry in 2027. Concept Class is the IMechE category for new teams: everything is designed and defended, nothing is yet built.",
+    "As Technical Director I sat across Powertrain, Chassis & Aero, Suspension and Driver Controls — chairing design reviews, owning the shared specification record and the master CAD assembly, and running the weekly leads meetings that kept four groups from converging on incompatible interface assumptions.",
+    "The vehicle is deliberately conservative. Manufacturability, reliability and cost were weighted above peak performance, on the reasoning that a Concept Class design has to become a real car within twelve months and the team's first EV should not also be its first attempt at novel architecture."
+  ],
+
+  results: [
+    ["Architecture", "Single-motor RWD, EMRAX 228 MV + Cascadia PM150DZ"],
+    ["Accumulator", "540-cell Molicel 108S5P, 8.16 kWh at 388.8 V nominal"],
+    ["Power", "80 kW per EV2.2.1 — motor rated 124 kW, derated to 73 kW continuous"],
+    ["Mass target", "260–280 kg without driver"],
+    ["Frame torsional stiffness", "2,922 Nm/deg by FEA against a 2,000 Nm/deg target"],
+    ["Impact attenuator", "8.45 kJ absorbed — 15% above the 7.35 kJ reference threshold"],
+    ["0–100 km/h", "3.97 s in software-in-the-loop against a 4.5 s target"],
+    ["Aerodynamics", "Undertray-diffuser only, 130–180 N at 80 km/h, 50–55% front-biased"],
+    ["Verification", "18 of 21 Design Verification Plan tests passed in SiL"]
+  ],
+
+  differently: [
+    "Centralise cross-group decisions from week one. Without a coordinated specification process the four sub-teams converge on incompatible interface assumptions — we learned that by having to fix it rather than by preventing it.",
+    "Scope the high-voltage workstream honestly at the start. Shutdown circuit, AMS, IMD, BSPD, BOTS, pre-charge, latched reset and TSAL are collectively a workstream with its own owner, not a set of tasks to distribute.",
+    "Start the mass roll-up before component selection, not after. A 15–20% overrun accumulates quietly unless there is an itemised budget updated weekly against real part numbers.",
+    "Identify long-lead items at concept stage. Three-to-four-month lead times on motor, inverter and cells decide whether the detail-design-to-build timeline closes at all, and that has to be known while the design is still moving."
+  ],
+
+  figures: [
+    { src: "assets/figures/fs-concept/fs_side.webp",  cap: "Side view, car #90. 2,739 mm overall length, 1,565 mm wheelbase, 1,140 mm height." },
+    { src: "assets/figures/fs-concept/fs_plan.webp",  cap: "Plan view showing the single-motor rear-wheel-drive layout and accumulator packaging." },
+    { src: "assets/figures/fs-concept/fs_front.webp", cap: "Front end view with track dimensions and pushrod actuation clearing the steering rack." }
+  ]
+},
+
+{
+  id: "f4-suspension",
+  title: "Formula 4 Suspension Setup Optimisation",
+  short: "A parametric MATLAB sweep of every homologated spring combination on a Tatuus F4 T-421, scored against Silverstone dry targets.",
+  org: "Brunel University London",
+  module: "Racing Vehicle Design & Performance — Suspensions & Tyres Section",
+  role: "Individual section within a group report",
+  year: "2026",
+  grade: "83%",
+  status: "complete",
+  featured: true,
+  tags: ["Vehicle dynamics", "Simulation", "Motorsport"],
+  tools: ["MATLAB", "2026 FIA F4 regulations", "Tatuus T-421 manual"],
+  report: "reports/f4-suspension.pdf",
+  hero: "assets/figures/f4-suspension/handling-balance.webp",
+
+  summary: [
+    "Formula 4 homologation fixes the wishbones, uprights and kinematics, so performance has to come out of the setup parameters that remain. That makes it a bounded optimisation problem rather than a design problem, which is exactly what makes it interesting.",
+    "I built an idealised spring–damper model of the T-421 — 570 kg with driver, 40:60 distribution, motion ratios 1.1 front and 1.23 rear, Pirelli slick vertical stiffness linearised at 1.4 bar and 0° camber — and swept every homologated spring rate from 700 to 1100 lb/in.",
+    "Each combination was scored by a weighted penalty function against Silverstone dry targets: enough front platform support without excessive pitch separation, a slightly softer rear for traction, pitch ratio above unity for stability, and a moderate front roll stiffness bias."
+  ],
+
+  results: [
+    ["Optimum setup", "F700 / R700 — score 0.243 against a 0.218 baseline"],
+    ["Ride rates", "59.60 N/mm front, 55.40 N/mm rear (−17.7% / −20.5%)"],
+    ["Sprung natural frequency", "4.051 Hz front, 3.090 Hz rear"],
+    ["Pitch ratio", "1.311 (front-dominant, up 1.8%)"],
+    ["Front roll stiffness share", "0.572 — unchanged, lateral balance preserved"],
+    ["Damping at ζ = 0.675", "3161.3 Ns/m front, 3852.6 Ns/m rear"]
+  ],
+
+  differently: [
+    "Replace the linearised tyre. Vertical stiffness was taken at a single operating point, which pushed the computed natural frequencies above real F4 values. The study is therefore only valid comparatively, and a load- and pressure-dependent tyre model would make it predictive.",
+    "Test the weightings, not just the model. Targets and weights were chosen to represent Silverstone but never perturbed. A 20% swing on any one weight might reorder the top five setups, and I don't currently know whether it does.",
+    "Add a transient case. The model is steady-state, and dampers earn their money over kerbs and in quick direction changes — precisely the conditions this model cannot see.",
+    "Bring anti-roll bars into the sweep. Leaving roll stiffness share to the springs alone artificially narrowed the range of balance solutions available."
+  ],
+
+  figures: [
+    { src: "assets/figures/f4-suspension/spring-ranking.webp",   cap: "Weighted optimisation score for every homologated front–rear spring combination, with F700/R700 highlighted." },
+    { src: "assets/figures/f4-suspension/handling-balance.webp", cap: "Handling balance map: pitch ratio against front roll stiffness share, coloured by overall score." },
+    { src: "assets/figures/f4-suspension/ride-rates.webp",       cap: "Front and rear ride rates and sprung natural frequencies across all evaluated combinations." },
+    { src: "assets/figures/f4-suspension/damping.webp",          cap: "Damper force–velocity characteristic and transient response across damping ratios for the selected setup." }
+  ]
+},
+
+{
   id: "rally-telemetry",
   title: "Rally Stage Telemetry Processing and DC Motor Control",
   short: "Turning noisy accelerometer data into a curvature map of a 1,380 m stage, then tuning a controller against it.",
@@ -239,7 +346,7 @@ const PROJECTS = [
   grade: "78%",
   status: "complete",
   featured: false,
-  tags: ["Signal processing", "Control", "MATLAB", "Simulink"],
+  tags: ["Vehicle dynamics", "Simulation", "Control"],
   tools: ["MATLAB", "Simulink", "Butterworth filtering", "PID tuning"],
   report: "reports/rally-telemetry.pdf",
   hero: "assets/figures/rally-telemetry/path-curvature.webp",
@@ -274,107 +381,8 @@ const PROJECTS = [
   ]
 },
 
-   {
-  id: "beng-dct",
-  title: "BEng Dissertation: Lightweighting Dual-Clutch Transmission Input Shafts",
-  short: "Thirteen steel grades screened, then FEA at 420 Nm in Abaqus validated against classical torsion theory.",
-  org: "University of Nottingham",
-  module: "BEng dissertation — supervised by Prof Nicholas Warrior",
-  role: "Individual dissertation",
-  year: "2024–25",
-  grade: "71%",
-  status: "complete",
-  featured: true,
-  tags: ["FEA", "Materials", "Powertrain", "Abaqus"],
-  tools: ["Abaqus CAE", "SolidWorks", "CES EduPack"],
-  report: "reports/beng-dct.pdf",
-  hero: "assets/figures/beng-dct/von-mises-inner.webp",
 
-  summary: [
-    "DCT input shafts carry high torsional load in a component whose geometry is largely fixed by the gearset around it. The question was whether material substitution alone can buy anything worth having.",
-    "Thirteen candidate grades were screened using a weighted Materials Performance Index built in CES EduPack, combining yield strength, density, shear modulus, cost and fatigue strength. The shortlist then went through FEA in Abaqus CAE — C3D10 tetrahedral mesh, 3 mm global size, 420 Nm applied through a coupling constraint — on both the inner and outer shafts.",
-    "The model was validated against classical torsion theory, with shear stress agreement inside 3–7%, and supported by a mesh convergence study on angle of twist."
-  ],
-
-  results: [
-    ["Baseline AISI 1045", "Factor of safety 2.04 inner, 13.60 outer"],
-    ["50B46", "FoS 6.23 / 41.57 — over 200% improvement at +1.35% cost"],
-    ["AISI 4140", "FoS 5.51 / 36.76 at +8.59% cost"],
-    ["17-4PH H1100", "−24.12% shaft cost with FoS 3.35 / 22.37"],
-    ["Mass", "Best case −3.06%, and that grade failed the FoS threshold"],
-    ["Torsional stiffness", "Varies under 3.3% across all grades — not a binding constraint"],
-    ["Validation", "FEA within 3–7% of classical torsion theory"]
-  ],
-
-  findings: [
-    {
-      h: "Material substitution buys strength and cost, not mass",
-      p: "Von Mises stress was effectively identical across every grade because geometry and load were fixed; only factor of safety moved, and it moved with yield strength. Steel densities are too close together for substitution alone to lighten anything — which means the honest conclusion of a lightweighting study was that the mass is in the geometry, and the material work should be spent on unlocking a smaller section rather than a lighter alloy."
-    }
-  ],
-
-  differently: [
-    "Model fatigue, not just static torsion. The shaft's real duty is cyclic. My own performance index weighted fatigue strength and then the analysis never tested it, which is an inconsistency I would not repeat.",
-    "Optimise geometry alongside material. That steel density barely varies was foreseeable at the proposal stage. Hollow sections and spline refinement would have made the word lightweighting in the title mean something.",
-    "Cost the component, not the billet. I compared raw material price only; machinability and heat-treatment cost would plausibly reverse the ranking between 50B46 and 17-4PH.",
-    "Interrogate the CES averages. Every property was averaged from a range. A sensitivity study on yield strength alone would have shown how much of the FoS ranking survives contact with real supplier data."
-  ],
-
-  figures: [
-    { src: "assets/figures/beng-dct/von-mises-inner.webp",  cap: "Von Mises stress on the inner input shaft at 420 Nm, showing concentrations at the diameter transitions." },
-    { src: "assets/figures/beng-dct/von-mises-outer.webp",  cap: "Von Mises stress on the outer input shaft, concentrating at the keyway slots." },
-    { src: "assets/figures/beng-dct/fos-inner.webp",        cap: "Factor of safety for the inner shaft across all thirteen grades, benchmarked against AISI 1045." },
-    { src: "assets/figures/beng-dct/cost-comparison.webp",  cap: "Percentage difference in total shaft cost against the baseline. Maraging Steel 300 is excluded for scale." },
-    { src: "assets/figures/beng-dct/mesh-convergence.webp", cap: "Mesh convergence: angle of twist against element count for the inner shaft." },
-    { src: "assets/figures/beng-dct/cad-assembly.webp",     cap: "CAD model of the inner input shaft, sectioned into regions for theoretical stress and twist calculation." }
-  ]
-},
-
-{
-  id: "f4-suspension",
-  title: "Formula 4 Suspension Setup Optimisation",
-  short: "A parametric MATLAB sweep of every homologated spring combination on a Tatuus F4 T-421, scored against Silverstone dry targets.",
-  org: "Brunel University London",
-  module: "Racing Vehicle Design & Performance — Suspensions & Tyres Section",
-  role: "Individual section within a group report",
-  year: "2026",
-  grade: "83%",
-  status: "complete",
-  featured: true,
-  tags: ["Vehicle dynamics", "Optimisation", "MATLAB", "Motorsport"],
-  tools: ["MATLAB", "2026 FIA F4 regulations", "Tatuus T-421 manual"],
-  report: "reports/f4-suspension.pdf",
-  hero: "assets/figures/f4-suspension/handling-balance.webp",
-
-  summary: [
-    "Formula 4 homologation fixes the wishbones, uprights and kinematics, so performance has to come out of the setup parameters that remain. That makes it a bounded optimisation problem rather than a design problem, which is exactly what makes it interesting.",
-    "I built an idealised spring–damper model of the T-421 — 570 kg with driver, 40:60 distribution, motion ratios 1.1 front and 1.23 rear, Pirelli slick vertical stiffness linearised at 1.4 bar and 0° camber — and swept every homologated spring rate from 700 to 1100 lb/in.",
-    "Each combination was scored by a weighted penalty function against Silverstone dry targets: enough front platform support without excessive pitch separation, a slightly softer rear for traction, pitch ratio above unity for stability, and a moderate front roll stiffness bias."
-  ],
-
-  results: [
-    ["Optimum setup", "F700 / R700 — score 0.243 against a 0.218 baseline"],
-    ["Ride rates", "59.60 N/mm front, 55.40 N/mm rear (−17.7% / −20.5%)"],
-    ["Sprung natural frequency", "4.051 Hz front, 3.090 Hz rear"],
-    ["Pitch ratio", "1.311 (front-dominant, up 1.8%)"],
-    ["Front roll stiffness share", "0.572 — unchanged, lateral balance preserved"],
-    ["Damping at ζ = 0.675", "3161.3 Ns/m front, 3852.6 Ns/m rear"]
-  ],
-
-  differently: [
-    "Replace the linearised tyre. Vertical stiffness was taken at a single operating point, which pushed the computed natural frequencies above real F4 values. The study is therefore only valid comparatively, and a load- and pressure-dependent tyre model would make it predictive.",
-    "Test the weightings, not just the model. Targets and weights were chosen to represent Silverstone but never perturbed. A 20% swing on any one weight might reorder the top five setups, and I don't currently know whether it does.",
-    "Add a transient case. The model is steady-state, and dampers earn their money over kerbs and in quick direction changes — precisely the conditions this model cannot see.",
-    "Bring anti-roll bars into the sweep. Leaving roll stiffness share to the springs alone artificially narrowed the range of balance solutions available."
-  ],
-
-  figures: [
-    { src: "assets/figures/f4-suspension/spring-ranking.webp",   cap: "Weighted optimisation score for every homologated front–rear spring combination, with F700/R700 highlighted." },
-    { src: "assets/figures/f4-suspension/handling-balance.webp", cap: "Handling balance map: pitch ratio against front roll stiffness share, coloured by overall score." },
-    { src: "assets/figures/f4-suspension/ride-rates.webp",       cap: "Front and rear ride rates and sprung natural frequencies across all evaluated combinations." },
-    { src: "assets/figures/f4-suspension/damping.webp",          cap: "Damper force–velocity characteristic and transient response across damping ratios for the selected setup." }
-  ]
-},
+/* ----------------------------------------------- Materials & manufacturing --- */
 
 {
   id: "cast-aluminium",
@@ -430,6 +438,9 @@ const PROJECTS = [
   ]
 },
 
+
+/* -------------------------------------------------------------- Commercial --- */
+
 {
   id: "bmw-strategy",
   title: "BMW Group: Financial Performance and A Route Into V2V",
@@ -442,7 +453,7 @@ const PROJECTS = [
   showGrade: true,      /* set false to hide the grade chip on this project only */
   status: "complete",
   featured: false,
-  tags: ["Commercial", "Financial analysis", "Strategy"],
+  tags: ["Commercial", "Strategy", "Financial analysis"],
   tools: ["BMW Group Report 2024", "Statista", "NPV / IRR / PI analysis"],
   report: "reports/bmw-strategy.pdf",
   hero: "assets/figures/bmw-strategy/market-share.webp",
@@ -476,13 +487,6 @@ const PROJECTS = [
     { src: "assets/figures/bmw-strategy/market-share.webp",    cap: "Market share of leading premium manufacturers across both years." },
     { src: "assets/figures/bmw-strategy/npv-sensitivity.webp", cap: "Net present value against demand shortfall, with the implied IRR at the zero crossing." }
   ]
-},
+}
 
-/* -------------------------------------------------- Team / leadership --- */
-
-
-/* ---------------------------------------------------- BEng, Nottingham --- */
-
-
-/* --------------------------------------------------------- In progress --- */
-
+];
