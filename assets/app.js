@@ -110,8 +110,9 @@ function homeHTML() {
           <h4>Outside work</h4>
           ${interests}
           <div class="int" style="margin-top:13px"><b>Languages</b><span>${esc(P.languages)}</span></div>
+          ${P.memberships ? `<div class="int" style="margin-top:13px"><b>Memberships</b><span>${esc(P.memberships)}</span></div>` : ""}
         </div>
-        <a class="btn btn-ghost" style="width:100%;justify-content:center" href="${esc(P.cvFile)}" download>Download the one-page CV</a>
+        <a class="btn btn-ghost" style="width:100%;justify-content:center" href="${esc(P.cvFile)}" download>Download the CV</a>
       </div>
     </div>
   </section>
@@ -140,7 +141,6 @@ function homeHTML() {
       </div>
       <ul class="clist">
         <li><a href="mailto:${esc(P.email)}"><span class="k">Email</span><span>${esc(P.email)}</span></a></li>
-        <li><a href="tel:${esc(P.phone.replace(/\s/g, ""))}"><span class="k">Phone</span><span>${esc(P.phone)}</span></a></li>
         <li><a href="${esc(P.linkedin)}" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span>${esc(P.linkedinLabel)}</span></a></li>
         <li><span><span class="k">Based in</span><span>${esc(P.location)}</span></span></li>
         <li><span><span class="k">Available</span><span>${esc(P.availability)}</span></span></li>
